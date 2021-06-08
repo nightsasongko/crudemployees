@@ -35,21 +35,20 @@
                     <input type="email" name="email" class="form-control" id="email" aria-describedby="email" >                
                 </div>
                 <div class="form-group">
-                    <label for="departement_id">departement_id</label>                    
-                    <input type="number" name="departement_id" class="form-control" id="departement_id" aria-describedby="departement_id" >                
+                    <label for="departement">Pilih Departement</label>   
+                    <select name="departement_id" id="departement_id">
+                        <option value="">--- Select Departement ---</option>
+                        @foreach ($departements as $id => $departement_name)
+                        <option value="{{ $id }}">{{ $departement_name }}</option>
+                        @endforeach
+                    </select>                            
                 </div>
             <button type="submit" class="btn btn-primary">Submit</button>
             </form>
-
-            @foreach ($departements as $departement)
-                <tr>
-                <td>{{ $departement['departement_name'] }}</td>
-                <td>{{ $departement['id'] }}</td>
-                </tr>
-            @endforeach
-
             </div>
         </div>
     </div>
-    </div>
+</div>
+
+
 @endsection

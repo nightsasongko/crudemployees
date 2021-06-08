@@ -24,7 +24,6 @@
             <th>Name</th>
             <th>Telepon</th>
             <th>Email</th>
-            <th>Departement_id</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($employees as $employee)
@@ -33,11 +32,14 @@
             <td>{{ $employee->name }}</td>
             <td>{{ $employee->telepon }}</td>
             <td>{{ $employee->email }}</td>
-            <td>{{ $employee->departement_id }}</td>
+
+            
+            
+            
             <td>
                 <form action="{{ route('employees.destroy',$employee->id) }}" method="POST">
    
-                    <a class="btn btn-info" href="{{ route('employees.show',$employee->id) }}">Show</a>
+                    {{-- <a class="btn btn-info" href="{{ route('employees.show',$employee->id) }}">Show</a> --}}
     
                     <a class="btn btn-primary" href="{{ route('employees.edit',$employee->id) }}">Edit</a>
    
@@ -50,15 +52,32 @@
         </tr>
         @endforeach
 
-        @foreach ($departements as $departement)
-        <tr>
-        <td>{{ $departement['departement_name'] }}</td>
-        <td>{{ $departement['id'] }}</td>
-        </tr>
-        @endforeach
+        
     </table>
     <div class="text-center">
         {!! $employees->links() !!}
     </div>
       
+    <table class="table table-bordered">
+        <tr>
+            <th>Name</th>
+            <th>Telepon</th>
+            <th>Email</th>
+            <th>Departement</th>
+        </tr>
+        @foreach ($employeesdepartement as $employeedepartement)
+        <tr>
+            <td>{{ $employeedepartement->name }}</td>
+            <td>{{ $employeedepartement->telepon }}</td>
+            <td>{{ $employeedepartement->email }}</td>
+            <td>{{ $employeedepartement->departement_name }}</td>
+
+            
+            
+         
+        </tr>
+        @endforeach
+
+        
+    </table>
 @endsection
