@@ -7,6 +7,9 @@
                 <h2>Laravel 8 CRUD - Manajemen employees</h2>
             </div>
             <div class="float-right my-2">
+                <a class="btn btn-primary" href="/employees/departement"> Departement</a>
+            </div>
+            <div class="float-right my-2">
                 <a class="btn btn-success" href="{{ route('employees.create') }}"> Create New employees</a>
             </div>
         </div>
@@ -32,10 +35,6 @@
             <td>{{ $employee->name }}</td>
             <td>{{ $employee->telepon }}</td>
             <td>{{ $employee->email }}</td>
-
-            
-            
-            
             <td>
                 <form action="{{ route('employees.destroy',$employee->id) }}" method="POST">
    
@@ -58,26 +57,9 @@
         {!! $employees->links() !!}
     </div>
       
-    <table class="table table-bordered">
-        <tr>
-            <th>Name</th>
-            <th>Telepon</th>
-            <th>Email</th>
-            <th>Departement</th>
-        </tr>
-        @foreach ($employeesdepartement as $employeedepartement)
-        <tr>
-            <td>{{ $employeedepartement->name }}</td>
-            <td>{{ $employeedepartement->telepon }}</td>
-            <td>{{ $employeedepartement->email }}</td>
-            <td>{{ $employeedepartement->departement_name }}</td>
+    
 
-            
-            
-         
-        </tr>
-        @endforeach
 
-        
-    </table>
+
+    
 @endsection

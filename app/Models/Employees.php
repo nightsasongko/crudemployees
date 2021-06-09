@@ -14,6 +14,8 @@ class Employees extends Model
         'email',
         'departement_id'
     ];
+
+    
 }
 
 
