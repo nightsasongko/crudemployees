@@ -13,19 +13,7 @@ use App\Http\Controllers\EmployeesController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Route::get('/employees/index' , [EmployeesController::class,'index']);
-// Route::get('/employees/create' , [EmployeesController::class,'create']);
-// Route::post('/create' , [EmployeesController::class,'store']);
 Route::get('/employees/departement' , [EmployeesController::class,'departement']);
 Route::resource('/employees' , EmployeesController::class);
 
 
-// Route::resource('employees', 'EmployeesController');
-// Route::get('/employees', 'App\Http\Controllers\EmployeesController@index');
-// Route::get('/employees', 'App\Http\Controllers\EmployeesController@create');
-// Route::get('/employees', 'App\Http\Controllers\EmployeesController@store');
-Route::get('/employees/departement', 'App\Http\Controllers\EmployeesController@departement');

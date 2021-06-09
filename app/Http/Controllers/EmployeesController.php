@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Departements;
+
 use App\Models\Employees;
 use App\Departement;
 use App\Employee;
@@ -13,29 +13,14 @@ class EmployeesController extends Controller
     
     public function index()
     {
-        $departements = Departements::pluck("departement_name","id");
-        // var_dump($departements);die;
-
-        
-        // var_dump($employeesdepartement);die;
-
-        $employeesdepartement = DB::table('employees')
-        ->join('departements', 'employees.departement_id', '=', 'departements.id')
-        ->select('employees.*', 'departements.departement_name')
-        ->get();
-        // return $employee;s
-        // var_dump($employee);die;
-
-
         $employees = Employees::latest()->paginate(5);
-        return view('employees.index',[
-            'departements' => $departements], compact('employees','employeesdepartement'))
+        return view('employees.index', compact('employees'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function create()
     {
-        $departements = Departements::pluck("departement_name","id");
+        $departements = Departement::pluck("departement_name","id");
 
         return view('employees.create', [
             'departements' => $departements,
@@ -57,21 +42,9 @@ class EmployeesController extends Controller
             ->with('success', 'Employees created successfully.'); 
     }
 
-    public function show($id)
-    {
-        // $departements = Departements::pluck("departement_name","id");
-        // $employeesid = EmployeesId::all();
-        // var_dump($employeesid);die;
-
-        // $employees = Employees::find($id);
-        // return view('employees.detail', [
-        //     'employeesid' => $employeesid,
-        // ], compact('employees'));
-    }
-
     public function edit($id)
     {
-        $departements = Departements::pluck("departement_name","id");
+        $departements = Departement::pluck("departement_name","id");
         // var_dump($departements);die;
 
         $employees = Employees::find($id);
@@ -105,10 +78,10 @@ class EmployeesController extends Controller
 
     public function departement()
     {
-        // $employee = Departement::all();
-        $employee_dep = Employee::with('departement')->get();
-        // return $employee_dep;
-        return view('departement.index', compact('employee_dep'));
+        // $employee_department = Department::all();
+        $employee_department = Employee::with('departement')->get();
+        // return $employee_department;
+        return view('departement.index', compact('employee_department'));
     }
 
     

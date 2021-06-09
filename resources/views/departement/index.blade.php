@@ -1,11 +1,11 @@
 <table class="table table-bordered">
     <tr>
         <th>Name</th>
-        <th>Telepon</th>
-        <th>Email</th>
-        <th>Departement</th>
+        <th>Telephone</th>
+        <th>E-mail</th>
+        <th>Department</th>
     </tr>
-    @foreach ($employee_dep as $employ)
+    @foreach ($employee_department as $employ)
     <tr>
         <td>{{ $employ->name }}</td>
         <td>{{ $employ->telepon }}</td>

@@ -4,13 +4,13 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left mt-2">
-                <h2>Laravel 8 CRUD - Manajemen employees</h2>
+                <h2>Management Employees</h2>
             </div>
             <div class="float-right my-2">
                 <a class="btn btn-primary" href="/employees/departement"> Departement</a>
             </div>
             <div class="float-right my-2">
-                <a class="btn btn-success" href="{{ route('employees.create') }}"> Create New employees</a>
+                <a class="btn btn-success" href="{{ route('employees.create') }}">Create New employee</a>
             </div>
         </div>
     </div>
@@ -25,8 +25,8 @@
         <tr>
             <th>No</th>
             <th>Name</th>
-            <th>Telepon</th>
-            <th>Email</th>
+            <th>Telephone</th>
+            <th>E-mail</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($employees as $employee)
