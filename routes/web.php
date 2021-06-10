@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeesController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,8 +13,7 @@ use App\Http\Controllers\EmployeesController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/employees/departement' , [EmployeesController::class,'departement']);
+Route::get('/index' , [EmployeesController::class,'index']);
+Route::get('/employees/department' , [EmployeesController::class,'department']);
+Route::resource('/' , EmployeesController::class);
 Route::resource('/employees' , EmployeesController::class);
-
-

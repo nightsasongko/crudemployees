@@ -2,28 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Employees;
-use App\Departement;
-use App\Employee;
+use App\Models\Employee;
+use App\Models\Department;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class EmployeesController extends Controller
 {
-    
     public function index()
     {
-        $employees = Employees::latest()->paginate(5);
-        return view('employees.index', compact('employees'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        $employees = Employee::latest()->paginate(5);
+        return view('index', compact('employees'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function create()
     {
-        $departements = Departement::pluck("departement_name","id");
+        $departments = Department::pluck("name","id");
 
-        return view('employees.create', [
-            'departements' => $departements,
+        return view('create', [
+            'departments' => $departments,
         ]);
     }
 
@@ -31,25 +27,23 @@ class EmployeesController extends Controller
     {
         $request->validate([
             'name' => 'required', 
-            'telepon' => 'required', 
+            'telephone' => 'required', 
             'email' => 'required', 
-            'departement_id' => 'required', 
+            'id_department' => 'required', 
         ]); 
 
-        Employees::create($request->all()); 
+        Employee::create($request->all()); 
 
-        return redirect()->route('employees.index')
-            ->with('success', 'Employees created successfully.'); 
+        return redirect()->route('index')
+            ->with('success', 'Employees created successfully.');
     }
 
     public function edit($id)
     {
-        $departements = Departement::pluck("departement_name","id");
-        // var_dump($departements);die;
-
-        $employees = Employees::find($id);
+        $departments = Department::pluck("name","id");
+        $employees = Employee::find($id);
         return view('employees.edit',[
-            'departements' => $departements], compact('employees')
+            'departments' => $departments], compact('employees')
         );
     }
 
@@ -57,32 +51,29 @@ class EmployeesController extends Controller
     {
         $request->validate([
             'name' => 'required', 
-            'telepon' => 'required', 
+            'telephone' => 'required', 
             'email' => 'required', 
-            'departement_id' => 'required', 
+            'id_department' => 'required', 
         ]);
 
-        Employees::find($id)->update($request->all());
+        Employee::find($id)->update($request->all());
 
-        return redirect()->route('employees.index')
+        return redirect()->route('index')
             ->with('success', 'Employees created successfully.'); 
     }
 
     public function destroy($id)
     {
-        Employees::find($id)->delete();
-        return redirect()->route('employees.index')
+        Employee::find($id)->delete();
+        return redirect()->route('index')
             ->with('success', 'Employees Berhasil Dihapus');
     }
 
-
-    public function departement()
+    public function department()
     {
-        // $employee_department = Department::all();
-        $employee_department = Employee::with('departement')->get();
-        // return $employee_department;
-        return view('departement.index', compact('employee_department'));
+        // $employee_de = Department::All();
+        $employee_department = Employee::with('department')->get();
+        // return $employee_de;
+        return view('department.index', compact('employee_department'));
     }
-
-    
 }

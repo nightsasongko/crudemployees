@@ -1,7 +1,7 @@
 <div class="row justify-content-center align-items-center">
     <div class="card" style="width: 24rem;">
         <div class="card-header">
-        Edit User
+        Tambah Employees
         </div>
         <div class="card-body">
             @if ($errors->any())
@@ -14,20 +14,19 @@
                 </ul>
             </div>
         @endif
-        <form method="post" action="{{ route('employees.update', $employees->id) }}" id="myForm">
+        <form method="post" action="{{ route('store') }}" id="myForm">
         @csrf
-        @method('PUT')
-        <div class="form-group">
+            <div class="form-group">
                 <label for="name">Name</label>                    
-                <input type="text" name="name" class="form-control" id="name" aria-describedby="name" value="{{$employees->name}}">                
+                <input type="text" name="name" class="form-control" id="name" aria-describedby="name" >                
             </div>
             <div class="form-group">
                 <label for="telephone">telephone</label>                    
-                <input type="number" name="telephone" class="form-control" id="telephone" aria-describedby="telephone" value="{{$employees->telephone}}">                
+                <input type="number" name="telephone" class="form-control" id="telephone" aria-describedby="telephone" >                
             </div>
             <div class="form-group">
                 <label for="email">Email</label>                    
-                <input type="email" name="email" class="form-control" id="email" aria-describedby="email" value="{{$employees->email}}">                
+                <input type="email" name="email" class="form-control" id="email" aria-describedby="email" >                
             </div>
             <div class="form-group">
                 <label for="department">Pilih Department</label>   
@@ -40,9 +39,6 @@
             </div>
         <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-
-   
-
         </div>
     </div>
 </div>

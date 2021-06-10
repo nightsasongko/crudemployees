@@ -1,20 +1,19 @@
-@extends('employees.layout')
- 
-@section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left mt-2">
-                <h2>Management Employees</h2>
-            </div>
-            <div class="float-right my-2">
-                <a class="btn btn-primary" href="/employees/departement"> Departement</a>
-            </div>
-            <div class="float-right my-2">
-                <a class="btn btn-success" href="{{ route('employees.create') }}">Create New employee</a>
-            </div>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Employees</title>
+</head>
+<body>
+    <h1>Employees</h1>
+    <div class="float-right my-2">
+        <a class="btn btn-primary" href="/employees/department"> Department</a>
     </div>
-   
+    <div class="float-right my-2">
+        <a class="btn btn-success" href="{{ route('create') }}">Create New employee</a>
+    </div>
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
@@ -33,7 +32,7 @@
         <tr>
             <td>{{ ++$i }}</td>
             <td>{{ $employee->name }}</td>
-            <td>{{ $employee->telepon }}</td>
+            <td>{{ $employee->telephone }}</td>
             <td>{{ $employee->email }}</td>
             <td>
                 <form action="{{ route('employees.destroy',$employee->id) }}" method="POST">
@@ -56,10 +55,5 @@
     <div class="text-center">
         {!! $employees->links() !!}
     </div>
-      
-    
-
-
-
-    
-@endsection
+</body>
+</html>

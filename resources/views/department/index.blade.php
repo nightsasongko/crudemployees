@@ -10,7 +10,7 @@
         <td>{{ $employ->name }}</td>
         <td>{{ $employ->telepon }}</td>
         <td>{{ $employ->email }}</td>
-        <td>{{ $employ->departement->departement_name }}</td> 
+        <td>{{ $employ->department->name }}</td> 
     </tr>
     @endforeach
 
