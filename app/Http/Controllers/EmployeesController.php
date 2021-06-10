@@ -35,7 +35,7 @@ class EmployeesController extends Controller
         Employee::create($request->all()); 
 
         return redirect()->route('index')
-            ->with('success', 'Employees created successfully.');
+            ->with('toast_success', 'Employee created successfully.');
     }
 
     public function edit($id)
@@ -59,14 +59,14 @@ class EmployeesController extends Controller
         Employee::find($id)->update($request->all());
 
         return redirect()->route('index')
-            ->with('success', 'Employees created successfully.'); 
+            ->with('toast_success', 'Employee update successfully.'); 
     }
 
     public function destroy($id)
     {
         Employee::find($id)->delete();
         return redirect()->route('index')
-            ->with('success', 'Employees Berhasil Dihapus');
+            ->with('toast_success', 'Employee delete successfully');
     }
 
     public function department()
