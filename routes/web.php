@@ -14,6 +14,7 @@ use App\Http\Controllers\EmployeesController;
 |
 */
 Route::get('/index' , [EmployeesController::class,'index']);
+Route::get('/dashboard' , [EmployeesController::class,'dashboard']);
 Route::get('/employees/department' , [EmployeesController::class,'department']);
 Route::resource('/' , EmployeesController::class);
 Route::resource('/employees' , EmployeesController::class);

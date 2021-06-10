@@ -1,3 +1,6 @@
+@extends('layout')
+    
+@section('content')
 <div class="row justify-content-center align-items-center">
     <div class="card" style="width: 24rem;">
         <div class="card-header">
@@ -40,9 +43,7 @@
             </div>
         <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-
-   
-
         </div>
     </div>
 </div>
+@endsection

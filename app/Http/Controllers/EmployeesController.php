@@ -76,4 +76,9 @@ class EmployeesController extends Controller
         // return $employee_de;
         return view('department.index', compact('employee_department'));
     }
+
+    public function dashboard()
+    {
+        return view('dashboard');
+    }
 }
