@@ -17,7 +17,7 @@
                     @foreach ($employee_department as $employ)
                     <tr>
                         <td>{{ $employ->name }}</td>
-                        <td>{{ $employ->telepon }}</td>
+                        <td>{{ $employ->telephone }}</td>
                         <td>{{ $employ->email }}</td>
                         <td>{{ $employ->department->name }}</td> 
                     </tr>
